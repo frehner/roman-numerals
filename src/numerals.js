@@ -1,21 +1,37 @@
 function convertToRoman(inputNumber) {
-  let currentNumber = inputNumber
-  let romanNumber = ''
+  if(typeof inputNumber !== "number") throw new Error(`Input not correct; number expected but received a ${typeof inputNumber}: ${inputNumber}`)
+  if(inputNumber <= 0) throw new Error(`Invalid number given; cannot be below 1. Received ${inputNumber}`)
+  if(inputNumber >= 4000000000) throw new Error(`Invalid number given; cannot be above or equal to 4 billion. Received ${inputNumber}`)
 
-  numberData.forEach(numData => {
-    const numberOfTimesUsed = Math.floor(currentNumber / numData.number)
-    currentNumber -= numberOfTimesUsed * numData.number
-    romanNumber += numData.roman.repeat(numberOfTimesUsed)
-  })
+  let currentNumber = inputNumber
+  let romanNumber = ""
+
+  const doubleVinculum = Math.floor(currentNumber / 1000 / 1000)
+  if(doubleVinculum) {
+    generateRomanFromNumber({vinculumAddition: "\u033F", multiplier: 1000*1000})
+  }
+
+  const singleVinculum = Math.floor(currentNumber / 1000)
+  if(singleVinculum) {
+    generateRomanFromNumber({vinculumAddition: "\u0304", multiplier: 1000})
+  }
+
+  generateRomanFromNumber()
+
+  function generateRomanFromNumber({vinculumAddition="", multiplier=1} = {}) {
+    numberData.forEach(numData => {
+      const arabicNumberWithMultiplier = numData.number * multiplier
+      const numberOfTimesUsed = Math.floor(currentNumber / arabicNumberWithMultiplier)
+      currentNumber -= numberOfTimesUsed * arabicNumberWithMultiplier
+      const romanNumbersWithVinculumAddition = numData.roman.split("").map(char => char + vinculumAddition).join("")
+      romanNumber += romanNumbersWithVinculumAddition.repeat(numberOfTimesUsed)
+    })
+  }
 
   return romanNumber
 }
 
 const numberData = [
-  {
-    number: 4000,
-    roman: "I\u0304V\u0304"
-  },
   {
     number: 1000,
     roman: "M"
