@@ -3,9 +3,9 @@
 ## Spec
 
 Use of single and double vinculums for larger numbers. For example
-* I\u0304 (I single vinculum) is used for one thousand (1,000)
-* I\u033F (I double vinculum) is used for one million (1,000,000)
-* M\u033F (M double vinculum) is used for one billion (1,000,000,000)
+* I\u0304 (I single vinculum or I&#0304;) is used for one thousand (1,000)
+* I\u033F (I double vinculum or I&#033F;) is used for one million (1,000,000)
+* M\u033F (M double vinculum or M&#033F;) is used for one billion (1,000,000,000)
 
 I vinculum is preferred over M when possible, e.g. 1000 -> I\u0304
 
