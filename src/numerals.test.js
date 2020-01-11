@@ -61,5 +61,13 @@ describe("convertToRoman", () => {
     it("throws when something other than a number is given", () => {
       expect(() => convertToRoman("1")).toThrow()
     })
+
+    it("throws when there is a decimal number given", () => {
+      expect(() => convertToRoman(1.5)).toThrow()
+    })
+
+    it("throws when NaN is given", () => {
+      expect(() => convertToRoman({})).toThrow()
+    })
   })
 })

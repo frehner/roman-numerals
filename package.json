@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "devserver": "nodemon ./src/server.js",
+    "start": "NODE_ENV=production node ./src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,10 @@
   "description": "",
   "devDependencies": {
     "jest": "^24.9.0",
-    "jest-cli": "^24.9.0"
+    "jest-cli": "^24.9.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^19.0.2"
   }
 }
