@@ -1,0 +1,17 @@
+{
+  "name": "roman-numerals",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0"
+  }
+}
